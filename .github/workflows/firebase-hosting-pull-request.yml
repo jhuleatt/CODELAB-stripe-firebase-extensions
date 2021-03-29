@@ -18,3 +18,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_JHULEATT_STRIPE_CODELAB }}'
           projectId: jhuleatt-stripe-codelab
           entryPoint: steps/stripe-firebase-extensions
+          expires: 30d
