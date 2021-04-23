@@ -80,7 +80,7 @@ When managing recurring payments and access to restricted content, it's crucial 
 
 The app uses Cloud Firestore to store product and pricing information, as well as customer details like their Stripe customer ID and subscription.
 
-1. In the **Develop** section in the left panel of the Firebase console, click  [**Cloud Firestore**](https://console.firebase.google.com/project/_/firestore).
+1. In the Firebase console, click [**Cloud Firestore**](https://console.firebase.google.com/project/_/firestore) in the left panel.
 2. Click **Create database**.
 
 <img src="img/7c7e056460256f11.png" alt="7c7e056460256f11.png"  width="624.00" />
