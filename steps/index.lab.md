@@ -441,6 +441,9 @@ Thanks to the webhook channel via Cloud Functions, Stripe can always update your
 
 In order for your customers to manage their subscriptions and payment methods send them to the Stripe customer portal.
 
+> aside positive
+Learn more about the Stripe customer portal [here](https://stripe.com/docs/billing/subscriptions/customer-portal).
+
 In your `app.js` below your "Checkout handler" add the following code. Make sure to change the `functionLocation` variable to the location to the region you selected when installing the extension.
 
 ```js
