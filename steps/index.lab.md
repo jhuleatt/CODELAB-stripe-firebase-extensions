@@ -2,10 +2,9 @@
 id: stripe-firebase-extensions
 summary: In this codelab, you'll add subscription payment functionality and manage access to paid content in your web app using Firebase Extensions, Firebase Authentication, and Stripe.
 status: [published]
-authors: Jeff Huleatt & Thor 雷神 Schaeff (Stripe)
+authors: Thor 雷神 Schaeff (Stripe) & Jeff Huleatt
 categories: Firebase
-tags: web
-source: 1ExqQMGcmky_OciNaN4RGosftqTbnhzdAwZE1_V_XmqM
+tags: web,stripe,tag-firebase,extensions 
 duration: 19
 feedback link: https://github.com/stripe/stripe-firebase-extensions/issues/
 
