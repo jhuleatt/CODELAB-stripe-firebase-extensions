@@ -70,8 +70,8 @@ You'll now enable and configure those Firebase products, using the Firebase cons
 
 When managing recurring payments and access to restricted content, it's crucial to have authentication in your app, to uniquely identify everyone who uses it. You'll use Firebase Authentication's email login.
 
-1. In the Firebase console, click **Develop** in the left panel.
-2. Click **Authentication**, and then click the **Sign-in method** tab (or  [click here](https://console.firebase.google.com/project/_/authentication/providers) to go directly to the **Sign-in method** tab).
+1. In the Firebase console, click **Authentication** in the left panel.
+2. Click the **Sign-in method** tab (or  [click here](https://console.firebase.google.com/project/_/authentication/providers) to go directly to the **Sign-in method** tab).
 3. Click **Email/Password** in the **Sign-in providers** list, set the **Enable** switch to the on position, and then click **Save**.
 
 <img src="img/ed0f449a872f7287.png" alt="ed0f449a872f7287.png"  width="624.00" />
