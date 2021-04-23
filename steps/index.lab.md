@@ -14,6 +14,9 @@ feedback link: https://github.com/stripe/stripe-firebase-extensions/issues/
 
 ## Introduction
 
+> aside negative
+Contributed by the Firebase community. Not official Google documentation.
+
 ### Goals
 
 In this codelab, you'll add subscription payment functionality to a web app using Firebase Extensions, Firebase Authentication, and Stripe.
