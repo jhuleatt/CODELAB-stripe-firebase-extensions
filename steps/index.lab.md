@@ -26,8 +26,8 @@ In this codelab, you'll add the following features to a skeleton web app:
 
 * User signup & login with Firebase authentication.
 * Read data from Cloud Firestore and render it to your web page.
-* Offer different pricing plans to your customers and create subscriptions for them with Stripe Checkout.
-* Allow customers to manage their subscriptions and payment methods with the Stripe customer portal.
+* Offer different pricing plans to your customers and create [subscriptions](https://stripe.com/docs/billing/subscriptions/overview) for them with [Stripe Checkout](https://stripe.com/payments/checkout).
+* Allow customers to manage their subscriptions and payment methods with the [Stripe customer portal](https://stripe.com/docs/billing/subscriptions/customer-portal).
 * Automatically delete user & customer data from Cloud Firestore and Stripe when a user deletes their account.
 
 ### What you'll learn
@@ -248,6 +248,12 @@ Optional: click **"Learn more"** to see all details as well as instructions to i
 
 ### **Configure synchronization between Stripe and Firebase**
 
+While you're waiting for the extension to install, set up a couple of things in the Stripe dashboard:
+
+1. [Set up an account name](https://dashboard.stripe.com/settings/account/?support_details=true) on the Stripe Dashboard.
+1. [Create a product and price](https://support.stripe.com/questions/how-to-create-products-and-prices) in the Stripe [Products Dashboard](https://dashboard.stripe.com/products).
+1. Save your customer portal settings in test mode in the [Stripe dashboard](https://dashboard.stripe.com/test/settings/billing/portal).
+
 Once the installation is complete, click "Manage" and select "How this extension works". Follow the steps there starting from **"Configure Stripe webhooks"**. When you get to **"Using the extension"**, come back to the CodeLab here.
 
 If everything is set up correctly, you will see the product and pricing information that you created from your Stripe Dashboard show up in Cloud Firestore. In the Firebase console navigate to **Cloud Firestore** and see the products collection.  <img src="img/9c7f68621a459c2.png" alt="9c7f68621a459c2.png"  width="624.00" />
@@ -329,7 +335,7 @@ function startDataListeners() {
 
 ### Create a subscription for your customer
 
-To create a subscription for your customer, you first need to create a Checkout Session. The extension listens to documents being created in the customer's `checkout_session` sub-collection and then creates the checkout session for you.
+To create a subscription for your customer, you first need to create a [Checkout Session](https://stripe.com/docs/api/checkout/sessions). The extension listens to documents being created in the customer's `checkout_session` sub-collection and then creates the checkout session for you.
 
 In your `app.js` below the "Event listeners" comment block add the following code.
 
