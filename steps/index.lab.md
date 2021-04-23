@@ -7,25 +7,20 @@ categories: Firebase
 tags: web
 source: 1ExqQMGcmky_OciNaN4RGosftqTbnhzdAwZE1_V_XmqM
 duration: 19
+feedback link: https://github.com/stripe/stripe-firebase-extensions/issues/
 
 ---
-
 # Add subscription payments to your web app with Firebase Extensions & Stripe
-
-
-
 
 ## Introduction
 
-
-
-### **Goals**
+### Goals
 
 In this codelab, you'll add subscription payment functionality to a web app using Firebase Extensions, Firebase Authentication, and Stripe.
 
 <img src="img/b938d9b07a1f609c.png" alt="b938d9b07a1f609c.png"  width="624.00" />
 
-### **What you'll build**
+### What you'll build
 
 In this codelab, you'll add the following features to a skeleton web app:
 
@@ -35,7 +30,7 @@ In this codelab, you'll add the following features to a skeleton web app:
 * Allow customers to manage their subscriptions and payment methods with the Stripe customer portal.
 * Automatically delete user & customer data from Cloud Firestore and Stripe when a user deletes their account.
 
-### **What you'll learn**
+### What you'll learn
 
 * How to use Firebase Extensions
 * How to seamlessly sync data between Stripe and Cloud Firestore without writing any server code
@@ -44,7 +39,7 @@ In this codelab, you'll add the following features to a skeleton web app:
 
 This codelab is focused on Firebase Extensions. For detailed information about other Firebase products mentioned in this codelab, refer to the  [Firebase documentation](https://firebase.google.com/docs) and other  [codelabs](https://codelabs.developers.google.com/?cat=Firebase).
 
-### **What you'll need**
+### What you'll need
 
 * A computer with a modern web browser installed (Chrome is recommended)
 * A Google account
@@ -221,13 +216,8 @@ In the Firebase console, click "Extensions" to see a collection of available Fir
 
 ### **Install the extension**
 
-*[optional] Click* 
-﻿
-
-***"Learn more"***
-﻿
-
- *to see all details as well as instructions to install the extension via the Firebase CLI instead.*
+> aside positive
+Optional: click **"Learn more"** to see all details as well as instructions to install the extension via the Firebase CLI instead.
 
 1. Click the **"Install"** button.
 2. Review the Cloud Functions that the extension will set up for you. These functions take care of the communication with the Stripe API and keep things in sync between your Stripe account and your Cloud Firestore.
@@ -252,7 +242,7 @@ In the Firebase console, click "Extensions" to see a collection of available Fir
 * Scroll to the bottom and click "**Create key".**
 
 6. In the restricted keys section, click "Reveal test key token" for the firebase key you just created. 
-7. Copy the key (rk_test_xxx) and paste it into the Firebase console
+7. Copy the key (`rk_test_xxx`) and paste it into the Firebase console
 
 8. Leave the webhook secret set to FILL_IN_FROM_POSTINSTALL. We will reconfigure that after installation.
 
@@ -276,7 +266,7 @@ Navigate back to your CodeSandbox project and let's update the app so that it fe
 1. In CodeSandbox, open the `public/javascript/app.js` file.
 2. Add the following code below the "Data listeners" comment.
 
-```
+```js
 /**
  * Data listeners
  */
@@ -343,7 +333,7 @@ To create a subscription for your customer, you first need to create a Checkout 
 
 In your `app.js` below the "Event listeners" comment block add the following code.
 
-```
+```js
 /**
  * Event listeners
  */
@@ -387,7 +377,7 @@ When the customer has successfully signed up for the subscription we want to sho
 
 In your `app.js` extend your `startDataListeners` function with the following:
 
-```
+```js
 /**
  * Data listeners
  */
@@ -447,9 +437,9 @@ In order for your customers to manage their subscriptions and payment methods se
 
 In your `app.js` below your "Checkout handler" add the following code. Make sure to change the `functionLocation` variable to the location to the region you selected when installing the extension.
 
-```
+```js
 // Billing portal handler
-const functionLocation = "TODO";
+const functionLocation = "TODO"; // us-central1, for example
 document
   .querySelector("#billing-portal-button")
   .addEventListener("click", async (event) => {
@@ -469,8 +459,8 @@ document
 ## Automatically delete customer & user data
 Duration: 06:00
 
-
-Note: Deleting a user in Firebase will immediately cancel all their active subscriptions and delete their customer object and payment method data in Stripe. Proceed with caution!
+> aside negative
+Deleting a user in Firebase will immediately cancel all their active subscriptions and delete their customer object and payment method data in Stripe. Proceed with caution!
 
 ### **The problem**
 
