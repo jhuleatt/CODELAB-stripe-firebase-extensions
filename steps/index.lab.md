@@ -44,9 +44,8 @@ This codelab is focused on Firebase Extensions. For detailed information about o
 * A computer with a modern web browser installed (Chrome is recommended)
 * A Google account
 * A  [Stripe account](https://dashboard.stripe.com/)
-* A billing account
-* To install this extension, your Firebase project must be on the Blaze (pay-as-you-go) plan. You will only be charged for the resources you use. Most Firebase services offer a free tier for low-volume use.  [Learn more about Firebase billing](https://firebase.google.com/pricing).
-* Starting August 17 2020, you will be billed a small amount (typically less than $0.10) when you install or reconfigure this extension. See the  [Cloud Functions for Firebase billing FAQ](https://firebase.google.com/support/faq#expandable-10) for a detailed explanation.
+* A credit card. Cloud Functions for Firebase requires the Firebase Blaze plan which means you will have to enable billing on your Firebase project using a credit card.
+ See the  [Cloud Functions for Firebase billing FAQ](https://firebase.google.com/support/faq#extensions-pricing) for a detailed explanation.
 
 
 ## Create and set up a Firebase project
