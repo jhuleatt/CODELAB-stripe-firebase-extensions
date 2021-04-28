@@ -248,11 +248,7 @@ Optional: click **"Learn more"** to see all details as well as instructions to i
 
 ### **Configure synchronization between Stripe and Firebase**
 
-While you're waiting for the extension to install, set up a couple of things in the Stripe dashboard:
-
-1. [Set up an account name](https://dashboard.stripe.com/settings/account/?support_details=true) on the Stripe Dashboard.
-1. [Create a product and price](https://support.stripe.com/questions/how-to-create-products-and-prices) in the Stripe [Products Dashboard](https://dashboard.stripe.com/products).
-1. Save your customer portal settings in test mode in the [Stripe dashboard](https://dashboard.stripe.com/test/settings/billing/portal).
+While you're waiting for the extension to install, check that you've [set up an account name](https://dashboard.stripe.com/settings/account/?support_details=true) on the Stripe Dashboard.
 
 Once the installation is complete, click "Manage" and select "How this extension works". Follow the steps there starting from **"Configure Stripe webhooks"**. When you get to **"Using the extension"**, come back to the CodeLab here.
 
@@ -335,7 +331,7 @@ function startDataListeners() {
 
 ### Create a subscription for your customer
 
-To create a subscription for your customer, you first need to create a [Checkout Session](https://stripe.com/docs/api/checkout/sessions). The extension listens to documents being created in the customer's `checkout_session` sub-collection and then creates the checkout session for you.
+To create a subscription for your customer, you first need to create a Checkout Session, which is the programmatic representation of what your customer sees when they’re redirected to the payment form. The extension listens to documents being created in the `checkout_session` sub-collection and then creates the checkout session for you.
 
 In your `app.js` below the "Event listeners" comment block add the following code.
 
@@ -365,6 +361,7 @@ async function subscribe(event) {
       success_url: window.location.origin,
       cancel_url: window.location.origin
     });
+
   // Wait for the CheckoutSession to get attached by the extension
   docRef.onSnapshot((snap) => {
     const { sessionId } = snap.data();
