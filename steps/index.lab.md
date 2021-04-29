@@ -539,7 +539,7 @@ Check out some of these other extensions:
 
 * [Subscribe to the Stripe developers YouTube channel](https://www.youtube.com/stripedevelopers)
 * [Stay updated with the Stripe developer digest](https://go.stripe.global/dev-digest)
-* [Browse the stripe samples](https://github.com/stripe-samples/) 
+* [Browse the Stripe samples](https://github.com/stripe-samples/) 
 
 ### **Other helpful documents**
 
@@ -555,5 +555,4 @@ Check out some of these other extensions:
 
 * View the source code and docs for the Stripe extensions  [on GitHub](https://github.com/stripe/stripe-firebase-extensions)
 * Learn about the  [permissions and access](https://firebase.google.com/docs/extensions/permissions-granted-to-extension) granted to an extension
-
 
