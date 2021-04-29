@@ -524,6 +524,7 @@ You learned how to discover, configure, install, and reconfigure extensions. In 
 
 Check out some of these other extensions:
 
+*  [Send invoices using Stripe](https://firebase.google.com/products/extensions/firestore-stripe-invoices)
 *  [Translate text strings in Cloud Firestore](https://firebase.google.com/products/extensions/firestore-google-translate/)
 *  [Add new users to Mailchimp email lists](https://firebase.google.com/products/extensions/mailchimper/)
 *  [Shorten URLs](https://firebase.google.com/products/extensions/firestore-shorten-urls-bitly/)
@@ -531,6 +532,14 @@ Check out some of these other extensions:
 ### Need more custom server-side code?
 
 *  [Check out the Cloud Functions for Firebase codelab](https://codelabs.developers.google.com/codelabs/firebase-cloud-functions/#0)
+*  [Create Stripe customers and charge them on Firestore write](https://github.com/firebase/functions-samples/tree/master/stripe)
+*  [Firebase mobile payments: Android & iOS with Cloud Functions for Firebase](https://github.com/stripe-samples/firebase-mobile-payments)
+
+### Learn more about Stripe
+
+* [Subscribe to the Stripe developers YouTube channel](https://www.youtube.com/stripedevelopers)
+* [Stay updated with the Stripe developer digest](https://go.stripe.global/dev-digest)
+* [Browse the Stripe samples](https://github.com/stripe-samples/) 
 
 ### **Other helpful documents**
 
@@ -546,5 +555,4 @@ Check out some of these other extensions:
 
 * View the source code and docs for the Stripe extensions  [on GitHub](https://github.com/stripe/stripe-firebase-extensions)
 * Learn about the  [permissions and access](https://firebase.google.com/docs/extensions/permissions-granted-to-extension) granted to an extension
-
 
