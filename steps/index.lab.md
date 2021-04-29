@@ -1,6 +1,6 @@
 ---
 id: stripe-firebase-extensions
-summary: In this codelab, you'll add subscription payment functionality and manage access to paid content in your web app using Firebase Extensions, Firebase Authentication, and Stripe.
+summary: In this codelab, you'll add subscription payment functionality and manage access to paid content in your web app using Firebase Extensions, Firebase Authentication, Cloud Firestore, and Stripe.
 status: [published]
 authors: Thor 雷神 Schaeff (Stripe) & Jeff Huleatt
 categories: Firebase
@@ -18,7 +18,7 @@ Contributed by the Firebase community. Not official Google documentation.
 
 ### Goals
 
-In this codelab, you'll add subscription payment functionality to a web app using Firebase Extensions, Firebase Authentication, and Stripe.
+In this codelab, you'll add subscription payment functionality to a web app using Firebase Extensions, Firebase Authentication, Cloud Firestore, and Stripe.
 
 <img src="img/b938d9b07a1f609c.png" alt="b938d9b07a1f609c.png"  width="624.00" />
 
@@ -28,8 +28,8 @@ In this codelab, you'll add the following features to a skeleton web app:
 
 * User signup & login with Firebase authentication.
 * Read data from Cloud Firestore and render it to your web page.
-* Offer different pricing plans to your customers and create subscriptions for them with Stripe Checkout.
-* Allow customers to manage their subscriptions and payment methods with the Stripe customer portal.
+* Offer different pricing plans to your customers and create [subscriptions](https://stripe.com/docs/billing/subscriptions/overview) for them with [Stripe Checkout](https://stripe.com/payments/checkout).
+* Allow customers to manage their subscriptions and payment methods with the [Stripe customer portal](https://stripe.com/docs/billing/subscriptions/customer-portal).
 * Automatically delete user & customer data from Cloud Firestore and Stripe when a user deletes their account.
 
 ### What you'll learn
@@ -71,8 +71,8 @@ You'll now enable and configure those Firebase products, using the Firebase cons
 
 When managing recurring payments and access to restricted content, it's crucial to have authentication in your app, to uniquely identify everyone who uses it. You'll use Firebase Authentication's email login.
 
-1. In the Firebase console, click **Develop** in the left panel.
-2. Click **Authentication**, and then click the **Sign-in method** tab (or  [click here](https://console.firebase.google.com/project/_/authentication/providers) to go directly to the **Sign-in method** tab).
+1. In the Firebase console, click **Authentication** in the left panel.
+2. Click the **Sign-in method** tab (or  [click here](https://console.firebase.google.com/project/_/authentication/providers) to go directly to the **Sign-in method** tab).
 3. Click **Email/Password** in the **Sign-in providers** list, set the **Enable** switch to the on position, and then click **Save**.
 
 <img src="img/ed0f449a872f7287.png" alt="ed0f449a872f7287.png"  width="624.00" />
@@ -81,7 +81,7 @@ When managing recurring payments and access to restricted content, it's crucial 
 
 The app uses Cloud Firestore to store product and pricing information, as well as customer details like their Stripe customer ID and subscription.
 
-1. In the **Develop** section in the left panel of the Firebase console, click  [**Cloud Firestore**](https://console.firebase.google.com/project/_/firestore).
+1. In the Firebase console, click [**Cloud Firestore**](https://console.firebase.google.com/project/_/firestore) in the left panel.
 2. Click **Create database**.
 
 <img src="img/7c7e056460256f11.png" alt="7c7e056460256f11.png"  width="624.00" />
@@ -249,6 +249,8 @@ Optional: click **"Learn more"** to see all details as well as instructions to i
 
 ### **Configure synchronization between Stripe and Firebase**
 
+While you're waiting for the extension to install, check that you've [set up an account name](https://dashboard.stripe.com/settings/account/?support_details=true) on the Stripe Dashboard.
+
 Once the installation is complete, click "Manage" and select "How this extension works". Follow the steps there starting from **"Configure Stripe webhooks"**. When you get to **"Using the extension"**, come back to the CodeLab here.
 
 If everything is set up correctly, you will see the product and pricing information that you created from your Stripe Dashboard show up in Cloud Firestore. In the Firebase console navigate to **Cloud Firestore** and see the products collection.  <img src="img/9c7f68621a459c2.png" alt="9c7f68621a459c2.png"  width="624.00" />
@@ -330,7 +332,7 @@ function startDataListeners() {
 
 ### Create a subscription for your customer
 
-To create a subscription for your customer, you first need to create a Checkout Session. The extension listens to documents being created in the customer's `checkout_session` sub-collection and then creates the checkout session for you.
+To create a subscription for your customer, you first need to create a Checkout Session, which is the programmatic representation of what your customer sees when they’re redirected to the payment form. The extension listens to documents being created in the `checkout_session` sub-collection and then creates the checkout session for you.
 
 In your `app.js` below the "Event listeners" comment block add the following code.
 
@@ -360,6 +362,7 @@ async function subscribe(event) {
       success_url: window.location.origin,
       cancel_url: window.location.origin
     });
+
   // Wait for the CheckoutSession to get attached by the extension
   docRef.onSnapshot((snap) => {
     const { sessionId } = snap.data();
@@ -435,6 +438,9 @@ Thanks to the webhook channel via Cloud Functions, Stripe can always update your
 ### **Access the Stripe customer portal**
 
 In order for your customers to manage their subscriptions and payment methods send them to the Stripe customer portal.
+
+> aside positive
+Learn more about the Stripe customer portal [here](https://stripe.com/docs/billing/subscriptions/customer-portal).
 
 In your `app.js` below your "Checkout handler" add the following code. Make sure to change the `functionLocation` variable to the location to the region you selected when installing the extension.
 
