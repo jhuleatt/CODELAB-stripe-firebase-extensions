@@ -253,7 +253,9 @@ While you're waiting for the extension to install, check that you've [set up an 
 
 Once the installation is complete, click "Manage" and select "How this extension works". Follow the steps there starting from **"Configure Stripe webhooks"**. When you get to **"Using the extension"**, come back to the CodeLab here.
 
-If everything is set up correctly, you will see the product and pricing information that you created from your Stripe Dashboard show up in Cloud Firestore. In the Firebase console navigate to **Cloud Firestore** and see the products collection.  <img src="img/9c7f68621a459c2.png" alt="9c7f68621a459c2.png"  width="624.00" />
+If everything is set up correctly, you will see the product and pricing information that you created from your Stripe Dashboard show up in Cloud Firestore. In the Firebase console navigate to **Cloud Firestore** and see the products collection.
+
+<img src="img/9c7f68621a459c2.png" alt="9c7f68621a459c2.png"  width="624.00" />
 
 Now that the data is available in Cloud Firestore, we can read it with the  [Firebase JavaScript client SDK](https://firebase.google.com/docs/database/web/read-and-write).
 
@@ -555,4 +557,3 @@ Check out some of these other extensions:
 
 * View the source code and docs for the Stripe extensions  [on GitHub](https://github.com/stripe/stripe-firebase-extensions)
 * Learn about the  [permissions and access](https://firebase.google.com/docs/extensions/permissions-granted-to-extension) granted to an extension
-
